@@ -3,275 +3,269 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>HELICOCIENCIA 2025</title>
+<title>HELICOCIENCIA 2026</title>
 
-<!-- FUENTES -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --verde-lima:#8DC63F;
-      --verde-oscuro:#4CAF50;
-      --gris:#333;
-      --blanco:#fff;
-      --borde:#e6e6e6;
+<style>
+:root{
+    --verde-lima:#8DC63F;
+    --verde-oscuro:#4CAF50;
+    --gris:#333;
+    --blanco:#fff;
+    --fondo:#f5f7f9;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins', sans-serif;
+    background:var(--fondo);
+    color:var(--gris);
+}
+
+/* HEADER */
+header{
+    background:white;
+    border-bottom:3px solid var(--verde-lima);
+    padding:15px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo a{
+    text-decoration:none;
+    font-size:22px;
+    font-weight:800;
+    color:var(--verde-oscuro);
+}
+
+nav{
+    display:flex;
+    gap:10px;
+}
+
+nav a{
+    text-decoration:none;
+    color:var(--gris);
+    padding:8px 15px;
+    border-radius:10px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+nav a:hover,
+nav a.active{
+    background:var(--verde-lima);
+    color:white;
+}
+
+/* HERO */
+.hero{
+    min-height:15vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:50px 20px;
+    background:linear-gradient(135deg,#f4fff0,#ffffff);
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:400px;
+    height:400px;
+    background:rgba(141,198,63,0.15);
+    border-radius:50%;
+    top:-120px;
+    right:-100px;
+    animation:float 6s infinite ease-in-out;
+}
+
+.hero h1{
+    font-size:3.5rem;
+    color:var(--verde-oscuro);
+    font-weight:800;
+    margin-bottom:20px;
+    animation:fadeDown 1s ease;
+}
+
+.hero h1 span{
+    color:var(--verde-lima);
+}
+
+.hero p{
+    font-size:1.3rem;
+    max-width:700px;
+    line-height:1.8;
+    animation:fadeUp 1.2s ease;
+}
+
+/* IMAGE */
+.image-container{
+    max-width:1100px;
+    margin:-60px auto 50px;
+    padding:0 20px;
+    position:relative;
+    z-index:10;
+}
+
+.image-container img{
+    width:100%;
+    border-radius:25px;
+    box-shadow:0 20px 45px rgba(0,0,0,0.15);
+    transition:0.5s ease;
+}
+
+.image-container img:hover{
+    transform:scale(1.03);
+}
+
+/* CONTENT */
+.content{
+    padding:40px 20px 80px;
+    display:flex;
+    justify-content:center;
+}
+
+.content-box{
+    max-width:1100px;
+    background:white;
+    padding:60px;
+    border-radius:25px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.08);
+    position:relative;
+    overflow:hidden;
+}
+
+.content-box::before{
+    content:"";
+    position:absolute;
+    width:250px;
+    height:250px;
+    background:rgba(141,198,63,0.12);
+    border-radius:50%;
+    top:-80px;
+    left:-80px;
+}
+
+.content-box h2{
+    text-align:center;
+    font-size:2.4rem;
+    color:var(--verde-oscuro);
+    margin-bottom:25px;
+    font-weight:800;
+}
+
+.content-box p{
+    text-align:center;
+    font-size:1.2rem;
+    line-height:2;
+    color:#444;
+}
+
+.highlight{
+    color:var(--verde-lima);
+    font-weight:700;
+}
+
+/* FOOTER */
+footer{
+    background:var(--verde-lima);
+    color:white;
+    text-align:center;
+    padding:18px;
+    font-size:14px;
+    margin-top:30px;
+}
+
+/* ANIMACIONES */
+@keyframes fadeDown{
+    from{
+        opacity:0;
+        transform:translateY(-40px);
     }
-
-    *{box-sizing:border-box;margin:0;padding:0}
-
-    html, body{
-      height:100%;
-      font-family:'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
-      color:var(--gris);
-      background:#f5f7f9;
+    to{
+        opacity:1;
+        transform:translateY(0);
     }
+}
 
-    /* Layout principal */
-    body{
-      display:flex;
-      flex-direction:column;
-      min-height:100vh;
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
     }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(20px);
+    }
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
 
     header{
-      background:var(--blanco);
-      border-bottom:3px solid var(--verde-lima);
-      padding:14px 20px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      position:sticky;
-      top:0;
-      z-index:10;
-    }
-
-    .logo a{
-      font-weight:800;
-      font-size:20px;
-      color:var(--verde-oscuro);
-      text-decoration:none;
-      letter-spacing:.2px;
+        flex-direction:column;
+        padding:15px;
     }
 
     nav{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-    }
-    nav a{
-      text-decoration:none;
-      color:var(--gris);
-      font-weight:600;
-      padding:6px 12px;
-      border-radius:8px;
-      transition:.2s;
-    }
-    nav a:hover, nav a.active{
-      background:var(--verde-lima);
-      color:#fff;
+        flex-wrap:wrap;
+        justify-content:center;
     }
 
-    /* Contenedor del visor */
-    .viewer-wrap{
-      flex:1;                 /* ocupa todo el alto disponible entre header y footer */
-      display:flex;
-      flex-direction:column;
-      max-width:1600px;
-      width:100%;
-      margin:0 auto;
-      padding:12px;
-      gap:12px;
+    .hero h1{
+        font-size:2.2rem;
     }
 
-    .viewer-head{
-      background:linear-gradient(90deg,#eaf7d6,#ffffff);
-      border:1px solid var(--borde);
-      border-radius:12px;
-      padding:12px 14px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      box-shadow:0 4px 10px rgba(0,0,0,.04);
-    }
-    .viewer-head h1{
-      font-size:18px;
-      color:#2b6e3f;
-      font-weight:800;
-    }
-    .viewer-actions{
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-    }
-    .btn{
-      appearance:none;
-      border:1px solid var(--verde-oscuro);
-      background:#fff;
-      color:var(--verde-oscuro);
-      padding:6px 10px;
-      border-radius:10px;
-      font-weight:700;
-      font-size:14px;
-      text-decoration:none;
-      cursor:pointer;
-      transition:.2s;
-    }
-    .btn:hover{background:var(--verde-oscuro);color:#fff}
-
-    .viewer{
-      flex:1;                 /* que el iframe use todo el espacio restante */
-      border:1px solid var(--borde);
-      border-radius:12px;
-      overflow:hidden;
-      box-shadow:0 10px 24px rgba(0,0,0,.06);
-      background:#fff;
-      min-height:300px;       /* fallback en pantallas muy pequeñas */
+    .hero p{
+        font-size:1rem;
     }
 
-    /* Iframe a pantalla disponible */
-    .viewer iframe{
-      width:100%;
-      height:100%;
-      border:0;
-      display:block;
+    .content-box{
+        padding:30px;
     }
 
-    footer, .copyright{
-      background:var(--verde-lima);
-      color:#fff;
-      text-align:center;
-      font-size:14px;
-      padding:12px;
+    .content-box h2{
+        font-size:1.7rem;
     }
 
-    /* Responsivo */
-    @media (max-width:768px){
-      header{padding:12px}
-      .viewer-head h1{font-size:16px}
-      nav a{font-size:14px}
+    .content-box p{
+        font-size:1rem;
+        line-height:1.8;
     }
 
-    .content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 80px 20px;
-    position: relative;
-}
-
-.content-box {
-    position: relative;
-    max-width: 1100px;
-    padding: 50px;
-    border-radius: 25px;
-    background: linear-gradient(135deg, #ffffff, #f4fff0);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
-    overflow: hidden;
-    animation: fadeUp 1.2s ease;
-    transition: transform 0.4s ease;
-}
-
-.content-box:hover {
-    transform: translateY(-8px);
-}
-
-.content-box h2 {
-    font-size: 2.5rem;
-    color: #2e7d32;
-    margin-bottom: 25px;
-    font-weight: 800;
-    text-align: center;
-    animation: pulseText 2s infinite alternate;
-}
-
-.content-box p {
-    font-size: 1.35rem;
-    line-height: 2;
-    text-align: center;
-    color: #444;
-}
-
-.highlight {
-    color: #8DC63F;
-    font-weight: bold;
-    font-size: 1.45rem;
-    position: relative;
-}
-
-.highlight::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 8px;
-    left: 0;
-    bottom: -3px;
-    background: rgba(141,198,63,0.35);
-    border-radius: 10px;
-}
-
-.glow-circle {
-    position: absolute;
-    width: 250px;
-    height: 250px;
-    background: radial-gradient(circle, rgba(141,198,63,0.25), transparent 70%);
-    top: -80px;
-    right: -80px;
-    border-radius: 50%;
-    animation: floatGlow 4s infinite ease-in-out;
-}
-
-/* Animaciones */
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    .image-container{
+        margin:-30px auto 30px;
     }
 }
-
-@keyframes pulseText {
-    from {
-        transform: scale(1);
-    }
-    to {
-        transform: scale(1.03);
-    }
-}
-
-@keyframes floatGlow {
-    0%,100% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(15px);
-    }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .content-box {
-        padding: 30px;
-    }
-
-    .content-box h2 {
-        font-size: 1.8rem;
-    }
-
-    .content-box p {
-        font-size: 1rem;
-        line-height: 1.7;
-    }
-}
-  </style>
+</style>
 </head>
+
 <body>
 
-<!-- HEADER -->
 <header>
     <div class="logo">
         <a href="index.html">CIENCIA EN ACCIÓN</a>
@@ -286,26 +280,16 @@
     </nav>
 </header>
 
-<!-- HERO -->
-<!--<section class="hero">
+<section class="hero">
     <h1>Bienvenidos a la <span>Helicociencia 2026</span></h1>
-    <p>
-        Ciencia en Acción, Soluciones para un futuro sostenible
-    </p>
-</section>-->
+</section>
 
-<!-- VIDEO OPCIONAL -->
-<!--
-<div class="video-container">
-    <iframe src="https://www.youtube.com/embed/ahXbe6CvmQw"
-    allowfullscreen></iframe>
-</div>
--->
+<section class="image-container">
+    <img src="imagenes1/foto1.jpeg" alt="Helicociencia 2026">
+</section>
 
-<!-- CONTENIDO -->
 <section class="content">
     <div class="content-box">
-        <div class="glow-circle"></div>
         <h2>BIENVENIDOS A LA HELICOCIENCIA 2026</h2>
         <p>
             Los grandes desafíos de nuestro tiempo requieren nuevas ideas y acciones concretas.
@@ -317,9 +301,8 @@
     </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-    © 2025 Ciencia y Bienestar | Todos los derechos reservados.
+    © 2026 Ciencia y Bienestar | Todos los derechos reservados.
 </footer>
 
 </body>
