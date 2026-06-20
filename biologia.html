@@ -180,10 +180,11 @@
 }
 
     table {
-      width: 100%;
-      border-collapse: collapse;
-      text-align: center;
-    }
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  table-layout: fixed; /* distribuye mejor las columnas */
+}
 
     th {
       background-color: #f0f8e1;
@@ -195,10 +196,12 @@
     }
 
     td {
-      border: 1px solid #999;
-      padding: 12px;
-      font-size: 15px;
-    }
+  border: 1px solid #999;
+  padding: 8px 12px;
+  font-size: 15px;
+  vertical-align: top;   /* pega el contenido arriba */
+  line-height: 1.4;
+}
 
     .subtitulo {
       background-color: #b3e5fc; /* Azul clarito */
@@ -270,7 +273,7 @@
     </nav>
   </header>
 
-  <h1>TEMARIO HELICOCIENCIA 2025 - BIOLOGÍA</h1>
+  <h1>TEMARIO HELICOCIENCIA 2026 - BIOLOGÍA</h1>
 
   <div class="tabla-grados">
     <table>
@@ -288,10 +291,8 @@
         <tr>
           <td colspan="4" class="subtitulo">BIOLOGÍA</td>
         </tr>
-
-        <tr>
           <td>
-            <b>A.</b> Microbiología del compostaje: Los descomponedores del suelo - Estudio de los hongos y bacterias responsables de la degradación de la materia orgánica.<br><br>
+            <b>A.</b> Microbiología del compostaje: Los descomponedores del suelo - Estudio de los hongos y bacterias responsables de la degradación de la materia orgánica.<br>
             <b>B.</b> Bancos de semillas nativas y seguridad alimentaria - Clasificación botánica y métodos de conservación biológica de semillas peruanas para asegurar el sustento alimentario. <br><br>
             <b>C.</b> Extractos botánicos como bioplaguicidas- Identificación de metabolitos secundarios en plantas repelentes para controlar plagas sin toxicidad ambiental.  <br><br>
             <b>D.</b> El poder de la germinación: Germinados para combatir la malnutrición - Evaluación del aumento del valor nutricional y enzimático celular al brotar una semilla. <br><br>
@@ -310,7 +311,6 @@
             <b>G.</b> Control biológico de plagas con insectos depredadores  - Aplicación de cadenas tróficas para la agricultura ecológica utilizando depredadores naturales en lugar de químicos. <br><br>
             <b>H.</b> Regeneración milagrosa: Células madre en el reino animal (Fílum Equinodermos y Celentéreos) .
           </td>
-
           <td>
             <b>A.</b> Microplásticos y su impacto en el tejido sanguíneo celular - Investigación sobre cómo las partículas plásticas microscópicas ingresan al torrente sanguíneo humano mediante la dieta.<br><br>
             <b>B.</b> La biología de la anemia: Tejido sanguíneo y nutrición - Estudio histológico de la sangre, el rol de la hemoglobina y la eficiencia en la absorción celular de hierro. <br><br>
@@ -321,7 +321,6 @@
             <b>G.</b> El sistema nervioso y la contaminación por metales pesados - Evaluación del impacto biológico del plomo o mercurio en la función neuronal y la interrupción de la sinapsis.  <br><br>
             <b>H.</b> Higiene y proliferación de bacterias en superficies cotidianas - Identificación microbiológica de cargas bacterianas de uso diario y la importancia biológica de la asepsia personal.
           </td>
-
           <td>
             <b>A.</b> Biorremediación: Microalgas y bacterias limpiadoras  - Uso de microorganismos con alta capacidad metabólica para degradar toxinas o hidrocarburos en medios acuáticos.<br><br>
             <b>B.</b> Biotecnología agrícola: OGM vs. Selección Artificial  - Comparación biológica y genética entre el cruce tradicional de plantas y la modificación directa de ADN en laboratorio.<br><br>
@@ -433,8 +432,8 @@
             <b>B.</b> Consumo de alcohol: impacto en el cuerpo, el cerebro y la conducta.<br><br>
             <b>C.</b> El consumo de tabaco, vapeadores y cigarros electrónicos: riesgos invisibles.<br><br>
             <b>D.</b> Drogas psicoactivas: cómo alteran el sistema nervioso y la vida.</td>
-        </tr> 
-    </table>!-->
+        </tr>!--> 
+    </table>
   </div>
 
   <a href="temario.html" class="boton-flotante">📚 Volver</a>

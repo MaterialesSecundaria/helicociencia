@@ -8,199 +8,266 @@
 <!-- FUENTES -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family:'Poppins',sans-serif;
-    background: linear-gradient(135deg,#f5fff7,#eef8f1);
-    color:#333;
-    overflow-x:hidden;
-}
-
-/* ANIMACIÓN GENERAL */
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(40px);
+  <style>
+    :root{
+      --verde-lima:#8DC63F;
+      --verde-oscuro:#4CAF50;
+      --gris:#333;
+      --blanco:#fff;
+      --borde:#e6e6e6;
     }
-    to{
-        opacity:1;
-        transform:translateY(0);
+
+    *{box-sizing:border-box;margin:0;padding:0}
+
+    html, body{
+      height:100%;
+      font-family:'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+      color:var(--gris);
+      background:#f5f7f9;
     }
-}
 
-/* HEADER */
-header{
-    width:100%;
-    padding:18px 40px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    background:rgba(255,255,255,0.85);
-    backdrop-filter:blur(12px);
-    border-bottom:2px solid #8DC63F;
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
-
-.logo{
-    font-size:28px;
-    font-weight:700;
-    color:#2e7d32;
-    letter-spacing:1px;
-    transition:0.3s;
-}
-
-.logo:hover{
-    transform:scale(1.05);
-}
-
-.logo a{
-    text-decoration:none;
-    color:inherit;
-}
-
-/* NAV */
-nav{
-    display:flex;
-    gap:12px;
-    flex-wrap:wrap;
-}
-
-nav a{
-    text-decoration:none;
-    color:#333;
-    font-weight:600;
-    padding:10px 18px;
-    border-radius:30px;
-    transition:all .3s ease;
-    position:relative;
-}
-
-nav a:hover,
-nav a.active{
-    background:linear-gradient(90deg,#4CAF50,#8BC34A);
-    color:white;
-    box-shadow:0 8px 20px rgba(76,175,80,0.3);
-}
-
-/* HERO */
-.hero{
-    padding:80px 20px 40px;
-    text-align:center;
-    animation:fadeUp 1s ease;
-}
-
-.hero h1{
-    font-size:3rem;
-    color:#1b5e20;
-    margin-bottom:20px;
-    font-weight:700;
-}
-
-.hero span{
-    color:#4CAF50;
-}
-
-.hero p{
-    font-size:1.2rem;
-    color:#555;
-    max-width:900px;
-    margin:auto;
-    line-height:1.8;
-}
-
-/* VIDEO */
-.video-container{
-    position:relative;
-    width:90%;
-    max-width:1200px;
-    margin:40px auto;
-    padding-bottom:50%;
-    height:0;
-    overflow:hidden;
-    border-radius:20px;
-    box-shadow:0 20px 40px rgba(0,0,0,0.15);
-    animation:fadeUp 1.3s ease;
-}
-
-.video-container iframe{
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    border:none;
-}
-
-/* CONTENIDO */
-.content{
-    width:90%;
-    max-width:1100px;
-    margin:40px auto;
-    background:white;
-    padding:40px;
-    border-radius:20px;
-    box-shadow:0 15px 40px rgba(0,0,0,0.08);
-    animation:fadeUp 1.6s ease;
-}
-
-.content p{
-    font-size:1.15rem;
-    line-height:2;
-    text-align:justify;
-    color:#444;
-}
-
-/* RESALTADO */
-.highlight{
-    color:#2e7d32;
-    font-weight:700;
-}
-
-/* FOOTER */
-footer{
-    margin-top:60px;
-    padding:25px;
-    text-align:center;
-    background:linear-gradient(90deg,#2e7d32,#4CAF50);
-    color:white;
-    font-size:14px;
-    letter-spacing:0.5px;
-}
-
-/* RESPONSIVE */
-@media(max-width:768px){
+    /* Layout principal */
+    body{
+      display:flex;
+      flex-direction:column;
+      min-height:100vh;
+    }
 
     header{
-        flex-direction:column;
-        padding:20px;
+      background:var(--blanco);
+      border-bottom:3px solid var(--verde-lima);
+      padding:14px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      position:sticky;
+      top:0;
+      z-index:10;
     }
 
-    .hero h1{
-        font-size:2rem;
-    }
-
-    .hero p{
-        font-size:1rem;
+    .logo a{
+      font-weight:800;
+      font-size:20px;
+      color:var(--verde-oscuro);
+      text-decoration:none;
+      letter-spacing:.2px;
     }
 
     nav{
-        justify-content:center;
-        margin-top:15px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    nav a{
+      text-decoration:none;
+      color:var(--gris);
+      font-weight:600;
+      padding:6px 12px;
+      border-radius:8px;
+      transition:.2s;
+    }
+    nav a:hover, nav a.active{
+      background:var(--verde-lima);
+      color:#fff;
     }
 
-    .content{
-        padding:25px;
+    /* Contenedor del visor */
+    .viewer-wrap{
+      flex:1;                 /* ocupa todo el alto disponible entre header y footer */
+      display:flex;
+      flex-direction:column;
+      max-width:1600px;
+      width:100%;
+      margin:0 auto;
+      padding:12px;
+      gap:12px;
+    }
+
+    .viewer-head{
+      background:linear-gradient(90deg,#eaf7d6,#ffffff);
+      border:1px solid var(--borde);
+      border-radius:12px;
+      padding:12px 14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      box-shadow:0 4px 10px rgba(0,0,0,.04);
+    }
+    .viewer-head h1{
+      font-size:18px;
+      color:#2b6e3f;
+      font-weight:800;
+    }
+    .viewer-actions{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      appearance:none;
+      border:1px solid var(--verde-oscuro);
+      background:#fff;
+      color:var(--verde-oscuro);
+      padding:6px 10px;
+      border-radius:10px;
+      font-weight:700;
+      font-size:14px;
+      text-decoration:none;
+      cursor:pointer;
+      transition:.2s;
+    }
+    .btn:hover{background:var(--verde-oscuro);color:#fff}
+
+    .viewer{
+      flex:1;                 /* que el iframe use todo el espacio restante */
+      border:1px solid var(--borde);
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:0 10px 24px rgba(0,0,0,.06);
+      background:#fff;
+      min-height:300px;       /* fallback en pantallas muy pequeñas */
+    }
+
+    /* Iframe a pantalla disponible */
+    .viewer iframe{
+      width:100%;
+      height:100%;
+      border:0;
+      display:block;
+    }
+
+    footer, .copyright{
+      background:var(--verde-lima);
+      color:#fff;
+      text-align:center;
+      font-size:14px;
+      padding:12px;
+    }
+
+    /* Responsivo */
+    @media (max-width:768px){
+      header{padding:12px}
+      .viewer-head h1{font-size:16px}
+      nav a{font-size:14px}
+    }
+
+    .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+    position: relative;
+}
+
+.content-box {
+    position: relative;
+    max-width: 1100px;
+    padding: 50px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #ffffff, #f4fff0);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    overflow: hidden;
+    animation: fadeUp 1.2s ease;
+    transition: transform 0.4s ease;
+}
+
+.content-box:hover {
+    transform: translateY(-8px);
+}
+
+.content-box h2 {
+    font-size: 2.5rem;
+    color: #2e7d32;
+    margin-bottom: 25px;
+    font-weight: 800;
+    text-align: center;
+    animation: pulseText 2s infinite alternate;
+}
+
+.content-box p {
+    font-size: 1.35rem;
+    line-height: 2;
+    text-align: center;
+    color: #444;
+}
+
+.highlight {
+    color: #8DC63F;
+    font-weight: bold;
+    font-size: 1.45rem;
+    position: relative;
+}
+
+.highlight::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    left: 0;
+    bottom: -3px;
+    background: rgba(141,198,63,0.35);
+    border-radius: 10px;
+}
+
+.glow-circle {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(141,198,63,0.25), transparent 70%);
+    top: -80px;
+    right: -80px;
+    border-radius: 50%;
+    animation: floatGlow 4s infinite ease-in-out;
+}
+
+/* Animaciones */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
-</style>
+
+@keyframes pulseText {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.03);
+    }
+}
+
+@keyframes floatGlow {
+    0%,100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(15px);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .content-box {
+        padding: 30px;
+    }
+
+    .content-box h2 {
+        font-size: 1.8rem;
+    }
+
+    .content-box p {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+}
+  </style>
 </head>
 <body>
 
@@ -220,12 +287,12 @@ footer{
 </header>
 
 <!-- HERO -->
-<section class="hero">
+<!--<section class="hero">
     <h1>Bienvenidos a la <span>Helicociencia 2026</span></h1>
     <p>
         Ciencia en Acción, Soluciones para un futuro sostenible
     </p>
-</section>
+</section>-->
 
 <!-- VIDEO OPCIONAL -->
 <!--
@@ -237,13 +304,17 @@ footer{
 
 <!-- CONTENIDO -->
 <section class="content">
-    <p>
-        Los grandes desafíos de nuestro tiempo requieren nuevas ideas y acciones concretas.
-        Por ello, nuestra <span class="highlight">Helicociencia 2026</span> promueve que los estudiantes
-        utilicen la ciencia y la tecnología para comprender problemáticas como la contaminación,
-        el cambio climático y la gestión de residuos, transformando el conocimiento en soluciones
-        con impacto positivo para un mundo más sostenible.
-    </p>
+    <div class="content-box">
+        <div class="glow-circle"></div>
+        <h2>BIENVENIDOS A LA HELICOCIENCIA 2026</h2>
+        <p>
+            Los grandes desafíos de nuestro tiempo requieren nuevas ideas y acciones concretas.
+            Por ello, nuestra <span class="highlight">Helicociencia 2026</span> promueve que los estudiantes
+            utilicen la ciencia y la tecnología para comprender problemáticas como la contaminación,
+            el cambio climático y la gestión de residuos, transformando el conocimiento en soluciones
+            con impacto positivo para un mundo más sostenible.
+        </p>
+    </div>
 </section>
 
 <!-- FOOTER -->
